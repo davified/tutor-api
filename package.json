@@ -1,0 +1,21 @@
+{
+  "name": "project-4-api",
+  "version": "1.0.0",
+  "description": "API for Tutor, which is an app that makes learning math fun and accessible.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "david-tan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "supertest": "^2.0.0"
+  }
+}
