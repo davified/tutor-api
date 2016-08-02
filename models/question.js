@@ -8,7 +8,8 @@ const QuestionSchema = new mongoose.Schema({
   hints: String,
   topic: String,
   subtopic: String,
-  level: Number
+  level: Number,
+  // mcq: Boolean
 })
 
 const Question = mongoose.model('Question', QuestionSchema)
