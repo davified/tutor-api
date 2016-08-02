@@ -4,7 +4,10 @@
   "description": "API for Tutor, which is an app that makes learning math fun and accessible.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "seed": "node models/seed.js",
+    "start": "node app.js",
+    "nodemon": "nodemon app.js"
   },
   "author": "david-tan",
   "license": "ISC",
@@ -14,10 +17,14 @@
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "mongoose": "^4.5.7",
+    "mongoose-seed": "^0.3.0",
     "uuid": "^2.0.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "supertest": "^2.0.0"
+  },
+  "engines" : {
+    "node" : "6.2.2"
   }
 }

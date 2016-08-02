@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const signInUpController = require('../controllers/signInUpController')
 // const userController = require('../controllers/userController')
-// const articleController = require('../controllers/articleController')
+const questionsController = require('../controllers/questionsController')
 // const tldrController = require('../controllers/tldrController')
 // const topicController = require('../controllers/topicController')
 
@@ -11,19 +11,21 @@ router.get('/', function (req, res) {
   res.status(200).json({message: 'hello world!'})
 })
 //
-// // ROUTING END POINTS TO THE APPROPRIATE FUNCTIONS
-// router.post('/signup', signInUpController.signUp)
-// router.post('/signin', signInUpController.signIn)
-//
+// ROUTING END POINTS TO THE APPROPRIATE FUNCTIONS
+router.post('/signup', signInUpController.signUp)
+router.post('/signin', signInUpController.signIn)
+
 // // USERS
 // // Get all users
 // router.get('/users', userController.getAllUsers)
 // // router.get('/users/:id', userController.findUserById)
 //
-// // ARTICLES
-// // Get all articles
-// router.get('/articles', articleController.getAllArticles)
-//
+// QUESTIONS
+// Get all questions
+router.get('/exercises', questionsController.getAllQuestions)
+// Get 10 questions for each topic
+router.get('/exercises/:topic', questionsController.getAllQuestionsOfOneTopic)
+
 // // Create new article
 // router.post('/articles', articleController.createArticle)
 //
