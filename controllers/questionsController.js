@@ -21,7 +21,20 @@ function getAllQuestionsOfOneTopic (req, res) {
   })
 }
 
+function getTopic (req, res) {
+  var topicByLevel = []
+  var subtopicByLevel = []
+  Question.find({level: req.params.level}, (err, questions) => {
+    if (err) return res.status(401).json({message: 'getTopic error'})
+    questions.forEach(function(element) {
+      if(!topicByLevel.includes(element.topic)) topicByLevel.push(element.topic)
+    })
+    res.status(200).json(topicByLevel)
+  })
+}
+
 module.exports = {
   getAllQuestions: getAllQuestions,
-  getAllQuestionsOfOneTopic: getAllQuestionsOfOneTopic
+  getAllQuestionsOfOneTopic: getAllQuestionsOfOneTopic,
+  getTopic: getTopic
 }

@@ -26,6 +26,9 @@ router.get('/exercises', questionsController.getAllQuestions)
 // Get 10 questions for each topic
 router.get('/exercises/:topic', questionsController.getAllQuestionsOfOneTopic)
 
+// Get all topics for a given level
+router.get('/topics/:level', questionsController.getTopic)
+
 // // Create new article
 // router.post('/articles', articleController.createArticle)
 //
