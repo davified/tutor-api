@@ -4,14 +4,15 @@ const uuid = require('uuid')
 
 // User Schema. need to add type (student/parent/tutor), created_at, updated_at later
 const UserSchema = new mongoose.Schema({
-  name: { type: String },
-  ninjaName: { type: String },
+  ninjaName: { type: String, required: true, unique: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   auth_token: { type: String, unique: true },
-  birthday: {type: Date},
-  level: {type: Number},
-  numberOfBadges: {type: Number},
+  birthday: Date,
+  level: String,
+  numberOfBadges: { type: Number },
   created_at: Date,
   updated_at: Date
 })

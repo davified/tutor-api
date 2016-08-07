@@ -1,4 +1,5 @@
 const Question = require('../models/question')
+const CompletedQuestion = require('../models/completedQuestion')
 
 function getAllQuestions (req, res, next) {
   if (req.query.search) {
@@ -21,6 +22,11 @@ function getAllQuestionsOfOneTopic (req, res) {
   })
 }
 
+function submitAnswer (req, res) {
+  let completedQuestion = new CompletedQuestion()
+}
+
+
 function getTopic (req, res) {
   var topicByLevel = []
   var subtopicByLevel = []
@@ -33,8 +39,13 @@ function getTopic (req, res) {
   })
 }
 
+function submitAnswer (req, res) {
+
+}
+
 module.exports = {
   getAllQuestions: getAllQuestions,
   getAllQuestionsOfOneTopic: getAllQuestionsOfOneTopic,
-  getTopic: getTopic
+  getTopic: getTopic,
+  submitAnswer: submitAnswer
 }
