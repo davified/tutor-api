@@ -28,7 +28,7 @@ router.get('/exercises/:topic', questionsController.getAllQuestionsOfOneTopic)
 // Submit/log answers for exercise
 router.post('/exercises/:topic', questionsController.submitAnswer)
 
-router.post('/dashboard', dashboardController.showDashboard)
+// router.post('/dashboard', dashboardController.showDashboard)
 
 // Get all topics for a given level
 router.get('/topics/:level', questionsController.getTopic)

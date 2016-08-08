@@ -24,6 +24,7 @@ function getAllQuestionsOfOneTopic (req, res) {
 
 function submitAnswer (req, res) {
   let completedQuestion = new CompletedQuestion()
+
 }
 
 
