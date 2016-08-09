@@ -22,31 +22,41 @@ function getAllQuestionsOfOneTopic (req, res) {
   })
 }
 
-function submitAnswer (req, res) {
-  let completedQuestion = new CompletedQuestion()
-
+function getQuestionsByTopic (req, res) {
+  var topic = req.params.topic
+  var level = req.params.level
+  Question.find({topic: topic, level: level}, (err, questions) => {
+    if (err) return res.status(401).json({message: 'getQuestionsByTopic error'})
+    res.status(200).json({questions})
+  })
 }
 
-
-function getTopic (req, res) {
+function getTopicsByLevel (req, res) {
   var topicByLevel = []
   var subtopicByLevel = []
   Question.find({level: req.params.level}, (err, questions) => {
-    if (err) return res.status(401).json({message: 'getTopic error'})
-    questions.forEach(function(element) {
-      if(!topicByLevel.includes(element.topic)) topicByLevel.push(element.topic)
+    if (err) return res.status(401).json({message: 'getTopicsByLevel error'})
+    questions.forEach(function (element) {
+      if (!topicByLevel.includes(element.topic)) topicByLevel.push(element.topic)
     })
     res.status(200).json(topicByLevel)
   })
 }
 
 function submitAnswer (req, res) {
+  req.body.forEach(function(element, index, array) {
+    const submission = new CompletedQuestion(element)
+    submission.save((err, submission) => {
 
+    })
+    if (err) return res.status(401).json({error: '/post submitAnswer error 1'})
+    res.status(200).json({message: 'submission success!! ', submission})
+  })
 }
 
 module.exports = {
   getAllQuestions: getAllQuestions,
-  getAllQuestionsOfOneTopic: getAllQuestionsOfOneTopic,
-  getTopic: getTopic,
+  getTopicsByLevel: getTopicsByLevel,
+  getQuestionsByTopic: getQuestionsByTopic,
   submitAnswer: submitAnswer
 }

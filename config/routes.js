@@ -23,15 +23,19 @@ router.post('/signin', signInUpController.signIn)
 // QUESTIONS
 // Get all questions
 router.get('/exercises', questionsController.getAllQuestions)
-// Get 10 questions for each topic
-router.get('/exercises/:topic', questionsController.getAllQuestionsOfOneTopic)
 // Submit/log answers for exercise
 router.post('/exercises/:topic', questionsController.submitAnswer)
 
 // router.post('/dashboard', dashboardController.showDashboard)
 
 // Get all topics for a given level
-router.get('/topics/:level', questionsController.getTopic)
+router.get('/levels/:level', questionsController.getTopicsByLevel)
+
+// Get exercise
+router.get('/levels/:level/exercises/:topic', questionsController.getQuestionsByTopic)
+
+// Submit exercise
+router.post('/submit', questionsController.submitAnswer)
 
 // show user dashboard
 // router.get('/dashboard/:user_id')

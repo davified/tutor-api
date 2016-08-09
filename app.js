@@ -1,14 +1,19 @@
 // SETTING UP APP.JS
 const express = require('express')
+const app = express()
+
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
 const dotenv = require('dotenv')
 dotenv.load()
 const cors = require('cors')
+// const session = require('express-session')
+const passport = require('passport')
+// const flash = require('connect-flash')
 
 // CREATING THE APP
-const app = express()
+
 
 // enabling cors using the cors package
 app.use(cors())
@@ -23,6 +28,17 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // })
 
 mongoose.connect(process.env.MONGODB_URI)
+
+// app.use(session({secret: 'anystringoftext',
+//                 saveUnitialized: true,
+//                 resave: true}))
+// app.use(passport.initialize())
+// app.use(passport.session())
+// app.use(flash())
+
+//temp test
+// app.set('view engine', 'ejs')
+// require('./config/routes.js')(app, passport)
 
 // ROUTES
 const router = require('./config/routes')

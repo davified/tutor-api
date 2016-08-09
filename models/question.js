@@ -5,7 +5,7 @@ const QuestionSchema = new mongoose.Schema({
   question: String,
   questionImage: String,
   options: Array,
-  answer: Number,
+  answer: String,
   answerImage: String,
   hints: String,
   topic: String,
