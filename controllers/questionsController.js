@@ -44,14 +44,21 @@ function getTopicsByLevel (req, res) {
 }
 
 function submitAnswer (req, res) {
-  req.body.forEach(function(element, index, array) {
-    const submission = new CompletedQuestion(element)
-    submission.save((err, submission) => {
+  // const submission = new CompletedQuestion(req.body)
+  // submission.save((err, submission) => {
+  //   if (err) return res.status(401).json({error: '/submit error 1'})
+  //   res.status(200).json({message: 'submitted!! ', submission})
+  // })
 
-    })
-    if (err) return res.status(401).json({error: '/post submitAnswer error 1'})
-    res.status(200).json({message: 'submission success!! ', submission})
-  })
+  console.log(req.body);
+  // req.body.forEach(function(element, index, array) {
+  //   const submission = new CompletedQuestion(element)
+  //   submission.save((err, submission) => {
+  //
+  //   })
+  //   if (err) return res.status(401).json({error: '/post submitAnswer error 1'})
+  //   res.status(200).json({message: 'submission success!! ', submission})
+  // })
 }
 
 module.exports = {
