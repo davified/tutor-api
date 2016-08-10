@@ -37,6 +37,9 @@ router.get('/levels/:level/exercises/:topic', questionsController.getQuestionsBy
 // Submit exercise
 router.post('/submit', questionsController.submitAnswer)
 
+// Edit User details
+router.put('/edit-user', signInUpController.editUser)
+
 // show user dashboard
 // router.get('/dashboard/:user_id')
 
