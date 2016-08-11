@@ -15,6 +15,8 @@ const UserSchema = new mongoose.Schema({
   school: String,
   level: String,
   numberOfBadges: Number,
+  address: String,
+  postalCode: String,
   aboutMe: String,
   created_at: Date,
   updated_at: Date
